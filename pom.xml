@@ -1,54 +1,31 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
+
+    <groupId>com.example</groupId>
+    <artifactId>simple-java-maven-app</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>my-app</name>
-    <url>https://maven.apache.org</url>
-
     <dependencies>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.11.0</version>
-            <scope>test</scope>
-        </dependency>
+        <!-- Add your dependencies here -->
     </dependencies>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <docker.image.prefix>your-dockerhub-username</docker.image.prefix>
-    </properties>
 
     <build>
         <plugins>
-            <!-- Existing plugins -->
-
-            <!-- Dockerfile Maven Plugin -->
             <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.13</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
                 <executions>
                     <execution>
-                        <id>default</id>
+                        <phase>package</phase>
                         <goals>
-                            <goal>build</goal>
-                            <goal>push</goal>
+                            <goal>jar</goal>
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <repository>${docker.image.prefix}/${project.artifactId}</repository>
-                    <tag>${project.version}</tag>
-                    <dockerfile>Dockerfile</dockerfile> <!-- Adjust path if necessary -->
-                    <buildArgs>
-                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-                    </buildArgs>
-                </configuration>
             </plugin>
         </plugins>
     </build>
