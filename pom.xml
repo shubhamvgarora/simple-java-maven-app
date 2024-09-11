@@ -15,7 +15,20 @@
     </properties>
 
     <dependencies>
-        <!-- Add your dependencies here -->
+         <dependency>
+                  <groupId>org.junit.jupiter</groupId>
+                  <artifactId>junit-jupiter-api</artifactId>
+                  <version>5.7.0</version> <!-- Use the version you prefer -->
+                  <scope>test</scope>
+         </dependency>
+
+    <!-- JUnit Jupiter Engine for running tests -->
+         <dependency>
+                  <groupId>org.junit.jupiter</groupId>
+                  <artifactId>junit-jupiter-engine</artifactId>
+                  <version>5.7.0</version> <!-- Use the version you prefer -->
+                  <scope>test</scope>
+         </dependency>
     </dependencies>
 
     <build>
