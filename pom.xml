@@ -19,6 +19,12 @@
             <configuration>
                 <repository>${docker.image.prefix}/${project.artifactId}</repository>
                 <tag>${project.version}</tag>
+                <!-- If your Dockerfile is in a custom directory, specify it here -->
+                <dockerfile>Dockerfile</dockerfile> <!-- Adjust path if necessary -->
+                <buildArgs>
+                    <!-- Optional: If you have build arguments -->
+                    <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                </buildArgs>
             </configuration>
         </plugin>
     </plugins>
