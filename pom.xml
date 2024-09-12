@@ -15,19 +15,20 @@
     </properties>
 
     <dependencies>
+         <!-- JUnit Jupiter API for writing tests -->
          <dependency>
-                  <groupId>org.junit.jupiter</groupId>
-                  <artifactId>junit-jupiter-api</artifactId>
-                  <version>5.7.0</version> <!-- Use the version you prefer -->
-                  <scope>test</scope>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.0</version> <!-- Use the version you prefer -->
+            <scope>test</scope>
          </dependency>
 
-    <!-- JUnit Jupiter Engine for running tests -->
+         <!-- JUnit Jupiter Engine for running tests -->
          <dependency>
-                  <groupId>org.junit.jupiter</groupId>
-                  <artifactId>junit-jupiter-engine</artifactId>
-                  <version>5.7.0</version> <!-- Use the version you prefer -->
-                  <scope>test</scope>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.7.0</version> <!-- Use the version you prefer -->
+            <scope>test</scope>
          </dependency>
     </dependencies>
 
@@ -36,25 +37,14 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version> <!-- Ensure you are using a compatible version -->
+                <version>3.10.1</version>
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.3.0</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <!-- The maven-jar-plugin is not needed here explicitly unless custom configurations are required -->
         </plugins>
     </build>
+
 </project>
