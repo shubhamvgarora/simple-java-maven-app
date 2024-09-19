@@ -19,7 +19,7 @@
          <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.7.0</version> <!-- Use the version you prefer -->
+            <version>5.7.0</version>
             <scope>test</scope>
          </dependency>
 
@@ -27,13 +27,14 @@
          <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.7.0</version> <!-- Use the version you prefer -->
+            <version>5.7.0</version>
             <scope>test</scope>
          </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Maven Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -43,7 +44,20 @@
                     <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
-            <!-- The maven-jar-plugin is not needed here explicitly unless custom configurations are required -->
+
+            <!-- Maven Jar Plugin to define the Main-Class -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.mycompany.app.App</mainClass> <!-- Replace with your actual main class -->
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
